@@ -77,6 +77,9 @@ TARGET_USERIMAGES_USE_EXT4 := true
 # F2FS support
 TARGET_USERIMAGES_USE_F2FS := true
 
+# Hidl
+DEVICE_MANIFEST_FILE := device/samsung/universal8895-common/manifest.xml
+
 # Disable Block based zips (makes korean versions compatible)
 BLOCK_BASED_OTA := false
 
