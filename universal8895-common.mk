@@ -85,11 +85,15 @@ PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 PRODUCT_AAPT_PREBUILT_DPI := xxhdpi xhdpi hdpi
 
 PRODUCT_PACKAGES += \
-    gralloc.exynos5
+    #gralloc.exynos5
 
 PRODUCT_PACKAGES += \
     libion \
-    libfimg
+    libfimg \
+    android.hardware.graphics.allocator@2.0-impl \
+    android.hardware.graphics.allocator@2.0-service \
+    android.hardware.graphics.composer@2.1-impl \
+    android.hardware.graphics.mapper@2.0-impl 
 
 # hardware/samsung/AdvancedDisplay (MDNIE)
 PRODUCT_PACKAGES += \
@@ -103,7 +107,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libsecril-client \
     libsecril-client-sap \
-    modemloader
+    modemloader \
+    android.hardware.radio@1.0 \
+    android.hardware.radio.deprecated@1.0 \
 
 PRODUCT_PACKAGES += \
     SamsungServiceMode
@@ -124,7 +130,10 @@ PRODUCT_PACKAGES += \
     wifiloader \
     hostapd \
     libwpa_client \
-    wpa_supplicant
+    wpa_supplicant \
+    android.hardware.wifi@1.0-service \
+    android.hardware.wifi@1.0 \
+    android.hardware.wifi@1.0-impl
 
 # external/wpa_supplicant_8/wpa_supplicant/wpa_supplicant_conf.mk
 PRODUCT_PACKAGES += \
@@ -139,7 +148,8 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     com.android.nfc_extras \
     NfcNci \
-    Tag
+    Tag \
+    android.hardware.nfc@1.0-impl
 
 # Audio
 PRODUCT_COPY_FILES += \
@@ -157,7 +167,9 @@ PRODUCT_PACKAGES += \
     audio.usb.default \
     audio.r_submix.default \
     audio.primary.universal8895 \
-    libtinycompress
+    libtinycompress \
+    android.hardware.audio@2.0-impl \
+    android.hardware.audio.effect@2.0-impl 
 
 # Media
 PRODUCT_COPY_FILES += \
@@ -184,22 +196,25 @@ PRODUCT_COPY_FILES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    power.universal8895
+    power.universal8895 \
+    android.hardware.power@1.0-impl
 
 # Lights
 PRODUCT_PACKAGES += \
     lights.universal8895
+    android.hardware.light@2.0-impl 
 
 # Fingerprint
 PRODUCT_PACKAGES += \
     fingerprintd \
     libbauthtzcommon_shim \
-    fingerprint.exynos5
+    fingerprint.exynos5 \
+    android.hardware.biometrics.fingerprint@2.1-service
 
 # Offmode charger
 PRODUCT_PACKAGES += \
     charger_res_images \
-    cm_charger_res_images
+    lineage_charger_res_images
 
 # System properties
 include $(LOCAL_PATH)/system_prop.mk
