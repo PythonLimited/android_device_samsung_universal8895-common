@@ -50,9 +50,6 @@ TARGET_USES_64_BIT_BINDER := true
 
 # Extracted with libbootimg
 BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x01000000 --tags_offset 0x00000100
-BOARD_KERNEL_BASE := 0x10000000
-BOARD_KERNEL_PAGESIZE := 2048
-#BOARD_KERNEL_CMDLINE := The bootloader ignores the cmdline from the boot.img
 BOARD_KERNEL_SEPARATED_DT := true
 TARGET_CUSTOM_DTBTOOL := dtbhtoolExynos
 BOARD_CUSTOM_BOOTIMG_MK := hardware/samsung/mkbootimg.mk
@@ -61,7 +58,9 @@ BOARD_CUSTOM_BOOTIMG_MK := hardware/samsung/mkbootimg.mk
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
-TARGET_USES_UNCOMPRESSED_KERNEL := true
+BOARD_KERNEL_BASE := 0x10000000
+BOARD_KERNEL_PAGESIZE := 2048
+BOARD_KERNEL_IMAGE_NAME := Image
 
 # Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE     :=  41943040 #(40960 sda7)
@@ -72,12 +71,12 @@ BOARD_CACHEIMAGE_PARTITION_SIZE    :=  524288000 #(512000 sda18)
 
 # blockdev --getbsz /dev/block/mmcblk0p9
 BOARD_FLASH_BLOCK_SIZE := 4096
-
 # Use these flags if the board has a ext4 partition larger than 2gb
 BOARD_HAS_LARGE_FILESYSTEM := true
 TARGET_USERIMAGES_USE_EXT4 := true
 # F2FS support
 TARGET_USERIMAGES_USE_F2FS := true
+
 # Disable Block based zips (makes korean versions compatible)
 BLOCK_BASED_OTA := false
 
@@ -94,8 +93,8 @@ TARGET_POWERHAL_VARIANT := samsung
 TARGET_SEC_FP_HAL_VARIANT := bauth
 
 # Samsung Hardware
-BOARD_HARDWARE_CLASS += device/samsung/universal8895-common/cmhw
-BOARD_HARDWARE_CLASS += hardware/samsung/cmhw
+BOARD_HARDWARE_CLASS += device/samsung/universal8895-common/lineagehw
+BOARD_HARDWARE_CLASS += hardware/samsung/lineagehw
 
 # Samsung Camera
 BOARD_USE_SAMSUNG_CAMERAFORMAT_NV21 := true
@@ -144,6 +143,7 @@ WIFI_BAND                        := 802_11_ABG
 BOARD_HAVE_SAMSUNG_WIFI := true
 
 # Charger
+WITH_LINEAGE_CHARGER := false
 BOARD_CHARGING_MODE_BOOTING_LPM := /sys/class/power_supply/battery/batt_lp_charging
 BOARD_CHARGER_ENABLE_SUSPEND := true
 BOARD_CHARGER_SHOW_PERCENTAGE := true
@@ -196,6 +196,12 @@ TW_HAS_DOWNLOAD_MODE := true
 TW_NO_EXFAT_FUSE := true
 TW_EXCLUDE_SUPERSU := true
 endif
+
+# Sensors
+# WIP
+
+# Usb
+TARGET_USES_LEGACY_ADB_INTERFACE := true
 
 # Seccomp filters
 BOARD_SECCOMP_POLICY += $(LOCAL_PATH)/seccomp
