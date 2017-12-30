@@ -3,3 +3,6 @@ import /efs/factory.prop
 
 # boot device
 ro.boot.bootdevice=11120000.ufs
+
+# Treble
+persist.media.treble_omx=false
