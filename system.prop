@@ -6,3 +6,6 @@ ro.boot.bootdevice=11120000.ufs
 
 # Treble
 persist.media.treble_omx=false
+
+# sdcardfs
+ro.sys.sdcardfs=false
