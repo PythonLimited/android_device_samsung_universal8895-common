@@ -77,9 +77,6 @@ TARGET_USERIMAGES_USE_EXT4 := true
 # F2FS support
 TARGET_USERIMAGES_USE_F2FS := true
 
-# Hidl
-DEVICE_MANIFEST_FILE := device/samsung/universal8895-common/manifest.xml
-
 # Disable Block based zips (makes korean versions compatible)
 BLOCK_BASED_OTA := false
 
@@ -159,7 +156,7 @@ BLUE_LED_PATH := "/sys/class/leds/led_b/brightness"
 BACKLIGHT_PATH := "/sys/class/backlight/panel/brightness"
 
 # RIL
-#BOARD_VENDOR := samsung
+BOARD_VENDOR := samsung
 BOARD_MODEM_TYPE := ss333
 BOARD_PROVIDES_LIBRIL := true
 
@@ -200,6 +197,9 @@ TW_HAS_DOWNLOAD_MODE := true
 TW_NO_EXFAT_FUSE := true
 TW_EXCLUDE_SUPERSU := true
 endif
+
+# Hidl
+DEVICE_MANIFEST_FILE := device/samsung/universal8895-common/manifest.xml
 
 # Sensors
 TARGET_NO_SENSOR_PERMISSION_CHECK := true
