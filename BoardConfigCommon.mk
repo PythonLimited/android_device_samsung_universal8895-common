@@ -200,6 +200,15 @@ TW_NO_EXFAT_FUSE := true
 TW_EXCLUDE_SUPERSU := true
 endif
 
+ifeq ($(HOST_OS),linux)
+    ifneq ($(TARGET_BUILD_VARIANT),eng)
+        ifeq ($(WITH_DEXPREOPT),)
+            WITH_DEXPREOPT := true
+            WITH_DEXPREOPT_BOOT_IMG_ONLY ?= true
+        endif
+    endif
+endif
+
 # Hidl
 DEVICE_MANIFEST_FILE := device/samsung/universal8895-common/manifest.xml
 
