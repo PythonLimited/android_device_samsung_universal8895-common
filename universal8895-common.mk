@@ -88,7 +88,7 @@ PRODUCT_AAPT_PREBUILT_DPI := xxhdpi xhdpi hdpi
     #gralloc.exynos5
 
 PRODUCT_PACKAGES += \
-    libion \
+    libion_exynos \
     libfimg \
     android.hardware.graphics.allocator@2.0-impl \
     android.hardware.graphics.allocator@2.0-service \
