@@ -118,6 +118,11 @@ PRODUCT_PACKAGES += \
     android.hardware.sensors@1.0-impl \
     android.hardware.sensors@1.0-service
 
+# Bluetooth
+PRODUCT_PACKAGES += \
+    android.hardware.bluetooth@1.0-impl \
+    libbt-vendor
+
 # Radio
 PRODUCT_PACKAGES += \
     libxml2 \
@@ -148,6 +153,9 @@ PRODUCT_PACKAGES += \
     macloader \
     wifiloader \
     hostapd \
+    wificond \
+    wifilogd \
+    wlutil \
     libwpa_client \
     wpa_supplicant \
     android.hardware.wifi@1.0-service \
@@ -246,6 +254,14 @@ PRODUCT_PACKAGES += \
 # USB
 PRODUCT_PACKAGES += \
     android.hardware.usb@1.0-service \
+
+# Network
+PRODUCT_PACKAGES += \
+    netutils-wrapper-1.0
+
+# Treble_omx
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.media.treble_omx=false 
 
 # System properties
 include $(LOCAL_PATH)/system_prop.mk
