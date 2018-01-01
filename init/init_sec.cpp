@@ -12,6 +12,15 @@
 
 #include "init_sec.h"
 
+#include <android-base/file.h>
+#include <android-base/logging.h>
+#include <android-base/properties.h>
+#include <android-base/strings.h>
+
+using android::base::Trim;
+using android::base::GetProperty;
+using android::base::ReadFileToString;
+using android::init::property_set;
 
 static std::string bootloader;
 
@@ -54,11 +63,12 @@ static device_variant parse_variant(std::string bl) {
 
 static device_variant get_variant_from_cmdline()
 {
-    bootloader = property_get("ro.bootloader");
+    bootloader = android::base::GetProperty("ro.bootloader", "");
     device_variant ret = parse_variant(bootloader);
 
     if (ret >= VARIANT_MAX) {
-        INFO("Unknown bootloader id: %s, forcing international (F) variant\n", bootloader.c_str());
+        //INFO("Unknown bootloader id: %s, forcing international (F) variant\n", bootloader.c_str());
+	LOG(INFO) << "Unknown bootloader id: %s " << "forcing international (F) variant\n" << bootloader.c_str();
         if (bootloader.find("G950") != std::string::npos)
             ret = VARIANT_G950F;
         else
@@ -149,7 +159,8 @@ void vendor_load_properties()
         break;
     }
 
-    INFO("Found bootloader id: %s setting build properties for: %s device\n", bootloader.c_str(), device.c_str());
+    //INFO("Found bootloader id: %s setting build properties for: %s device\n", bootloader.c_str(), device.c_str());
+    LOG(INFO) << "Found bootloader id: %s " << "setting build properties for: %s device\n" << bootloader.c_str() << device.c_str();
 
     property_override("ro.build.fingerprint", fingerprint.c_str());
     property_override("ro.build.description", description.c_str());
