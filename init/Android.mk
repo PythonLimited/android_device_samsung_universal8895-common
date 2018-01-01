@@ -21,8 +21,13 @@ LIBINIT_SEC_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
 LOCAL_MODULE_TAGS := optional
-LOCAL_C_INCLUDES := system/core/init
+LOCAL_C_INCLUDES := \
+    system/core/base/include \
+    system/core/init \
+    external/selinux/libselinux/include \
+    external/libcap/libcap/include
 LOCAL_CFLAGS := -Wall -DANDROID_TARGET=\"$(TARGET_BOARD_PLATFORM)\"
+LOCAL_STATIC_LIBRARIES := libbase
 LOCAL_SRC_FILES := init_sec.cpp
 LOCAL_MODULE := libinit_sec
 include $(BUILD_STATIC_LIBRARY)
