@@ -93,11 +93,35 @@ PRODUCT_PACKAGES += \
     android.hardware.graphics.allocator@2.0-impl \
     android.hardware.graphics.allocator@2.0-service \
     android.hardware.graphics.composer@2.1-impl \
-    android.hardware.graphics.mapper@2.0-impl 
+    android.hardware.graphics.composer@2.1-service \
+    android.hardware.graphics.mapper@2.0-impl \
+    android.hardware.configstore@1.0-service \
+    android.hardware.memtrack@1.0-impl \
+    android.hardware.memtrack@1.0-service \
+    libhwc2on1adapter
+
+# RenderScript HAL
+PRODUCT_PACKAGES += \
+    android.hardware.renderscript@1.0-impl
 
 # hardware/samsung/AdvancedDisplay (MDNIE)
 PRODUCT_PACKAGES += \
     AdvancedDisplay
+
+# DRM
+PRODUCT_PACKAGES += \
+    android.hardware.drm@1.0-impl \
+    android.hardware.drm@1.0-service 
+
+# Sensors
+PRODUCT_PACKAGES += \
+    android.hardware.sensors@1.0-impl \
+    android.hardware.sensors@1.0-service
+
+# HIDL
+PRODUCT_PACKAGES += \
+    android.hidl.base@1.0 \
+    android.hidl.manager@1.0-java
 
 # Radio
 PRODUCT_PACKAGES += \
@@ -149,7 +173,8 @@ PRODUCT_PACKAGES += \
     com.android.nfc_extras \
     NfcNci \
     Tag \
-    android.hardware.nfc@1.0-impl
+    android.hardware.nfc@1.0-impl \
+    android.hardware.nfc@1.0-service 
 
 # Audio
 PRODUCT_COPY_FILES += \
@@ -169,6 +194,7 @@ PRODUCT_PACKAGES += \
     audio.primary.universal8895 \
     libtinycompress \
     android.hardware.audio@2.0-impl \
+    android.hardware.audio@2.0-service \
     android.hardware.audio.effect@2.0-impl 
 
 # Media
@@ -194,24 +220,36 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/keylayout/samsung.kl:system/usr/keylayout/samsung.kl \
 
+# Keymaster
+PRODUCT_PACKAGES += \
+    android.hardware.keymaster@3.0-impl \
+    android.hardware.keymaster@3.0-service
+
 # Power
 PRODUCT_PACKAGES += \
     power.universal8895 \
-    android.hardware.power@1.0-impl
+    android.hardware.power@1.0-impl \
+    android.hardware.power@1.0-service \
 
 # Lights
 PRODUCT_PACKAGES += \
-    lights.universal8895
-    android.hardware.light@2.0-impl 
+    lights.universal8895 \
+    android.hardware.light@2.0-impl \
+    android.hardware.light@2.0-service 
 
 # Fingerprint
 PRODUCT_PACKAGES += \
     fingerprint.exynos5 \
     android.hardware.biometrics.fingerprint@2.1-service
+
 # Offmode charger
 PRODUCT_PACKAGES += \
     charger_res_images \
     lineage_charger_res_images
+
+# USB
+PRODUCT_PACKAGES += \
+    android.hardware.usb@1.0-service \
 
 # System properties
 include $(LOCAL_PATH)/system_prop.mk
