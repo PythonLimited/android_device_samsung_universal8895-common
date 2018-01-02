@@ -37,8 +37,6 @@
 /dev/ehci_power              u:object_r:mif_device:s0
 /dev/mipi-lli/lli_control    u:object_r:mif_device:s0
 
-/dev/ttySAC[0-9]*            u:object_r:gps_device:s0
-
 /dev/block/sda[0-9]*         u:object_r:emmcblk_device:s0
 /dev/block/sda3              u:object_r:efs_block_device:s0
 /dev/block/sda7              u:object_r:boot_block_device:s0
@@ -108,11 +106,6 @@
 /data/\.wifiver\.info        u:object_r:wifi_data_file:s0
 
 /data/misc/radio(/.*)?       u:object_r:radio_data_file:s0
-
-# gps
-/data/gps/ctrlpipe                                   u:object_r:gps_data_file:s0
-/data/gps/\.gpslogd\.pipe                            u:object_r:gps_data_file:s0
-/data/gps/nmeapipe                                   u:object_r:gps_data_file:s0
 
 # mobicore
 /data/misc/mcRegistry(/.*)?  u:object_r:tee_data_file:s0
