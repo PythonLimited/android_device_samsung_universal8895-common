@@ -2,7 +2,7 @@
 #
 # sensorhub
 type sensorhub_service, service_manager_type;
-type sensorhubservice, domain, domain_deprecated;
+type sensorhubservice, domain;
 type sensorhubservice_exec, exec_type, file_type;
 
 init_daemon_domain(sensorhubservice)
