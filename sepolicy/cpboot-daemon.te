@@ -1,5 +1,5 @@
 # modem daemon sec label
-type cpboot-daemon, domain, domain_deprecated;
+type cpboot-daemon, domain;
 type cpboot-daemon_exec, exec_type, file_type;
 
 net_domain(cpboot-daemon)
@@ -15,8 +15,6 @@ allow cpboot-daemon kernel:system syslog_read;
 allow cpboot-daemon cgroup:dir create_dir_perms;
 
 # /dev/log/*
-allow cpboot-daemon log_device:dir r_dir_perms;
-allow cpboot-daemon log_device:chr_file rw_file_perms;
 # /dev/kmsg (write to kernel log)
 allow cpboot-daemon kmsg_device:chr_file rw_file_perms;
 

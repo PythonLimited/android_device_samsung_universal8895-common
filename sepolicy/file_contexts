@@ -110,7 +110,6 @@
 /data/misc/radio(/.*)?       u:object_r:radio_data_file:s0
 
 # gps
-/data/system/gps(/.*)?       u:object_r:gps_data_file:s0
 /data/gps/ctrlpipe                                   u:object_r:gps_data_file:s0
 /data/gps/\.gpslogd\.pipe                            u:object_r:gps_data_file:s0
 /data/gps/nmeapipe                                   u:object_r:gps_data_file:s0
@@ -122,14 +121,6 @@
 
 # camera
 /data/camera/ISP_CV          u:object_r:camera_data_file:s0
-
-####################################
-# sysfs files
-/sys/class/power_supply/battery/music -- u:object_r:sysfs_writable:s0
-/sys/class/devfreq/exynos5-busfreq-mif(/.*)? -- u:object_r:sysfs_writable:s0
-/sys/class/lcd(/.*)?         -- u:object_r:sysfs_writable:s0
-/sys/class/sec(/.*)?         -- u:object_r:sysfs_sec:s0
-/sys/kernel/config(/.*)?     -- u:object_r:sysfs_writable:s0
 
 # bluetooth
 /sys/devices/platform/bluetooth/rfkill/rfkill0/state  u:object_r:sysfs_bluetooth_writable:s0
@@ -164,5 +155,4 @@
 /system/bin/wifiloader       u:object_r:wifiloader_exec:s0
 
 /system/bin/cbd              u:object_r:cpboot-daemon_exec:s0
-/system/bin/gpsd             u:object_r:gpsd_exec:s0
 /system/bin/lhd              u:object_r:lhd_exec:s0

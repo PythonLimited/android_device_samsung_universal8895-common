@@ -1,4 +1,4 @@
-allow kernel self:capability { dac_override chown mknod };
+allow kernel self:capability { mknod };
 
 # /dev/mbin0
 allow kernel emmcblk_device:blk_file r_file_perms;
@@ -8,6 +8,7 @@ allow kernel device:dir { create write remove_name rmdir add_name };
 allow kernel device:chr_file { create setattr getattr unlink };
 
 # /sys/devices/system/cpu/cpu[0-9]/cpufreq/*
+allow kernel kernel:capability { chown };
 allow kernel sysfs_devices_system_cpu:file { setattr };
 allow kernel sysfs:file { setattr };
 
